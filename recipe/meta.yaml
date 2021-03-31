@@ -15,7 +15,8 @@ build:
     - dask-ssh=distributed.cli.dask_ssh:go
     - dask-worker=distributed.cli.dask_worker:go
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
-  skip: true  # [py<36]
+  skip: true  # [py<37]
+  # Python 3.6 is no longer supported https://distributed.dask.org/en/latest/changelog.html
 
 requirements:
   build:
