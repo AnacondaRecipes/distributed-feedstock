@@ -58,6 +58,9 @@ test:
     - dask-ssh --help
     - dask-worker --help
 
+#Note: The build and dependency order for dask-distributed packages are as follows.
+#      dask-core --->distributed --->dask
+
 about:
   home: http://distributed.readthedocs.io/en/latest/
   license: BSD-3-Clause
