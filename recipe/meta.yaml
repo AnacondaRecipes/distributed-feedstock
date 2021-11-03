@@ -59,6 +59,7 @@ test:
     - distributed.protocol
   requires:
     - pip
+    - click >=6.6,!=8.0.3   # [py<38]
   commands:
     - pip check
     - dask-scheduler --help
