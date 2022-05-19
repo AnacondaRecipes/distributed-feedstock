@@ -1,2 +1,2 @@
-channels:
-  - c3i_test2
+channels: 
+  cbouss: dask_dev 
