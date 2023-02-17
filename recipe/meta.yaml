@@ -1,7 +1,7 @@
 {% set name = "distributed" %}
-{% set version = "2022.7.0" %}
+{% set version = "2023.2.0" %}
 {% set build_number = "0" %}
-{% set checksum = "e68aba8be3e20e5d1120abcac841909ff18021708a8412afa58ff153c4fab0ac" %}
+{% set checksum = "8b3c71273b3b346e6e106762b932c745237390c29d7257479073e95299d07dda" %}
 
 package:
   name: {{ name|lower }}
