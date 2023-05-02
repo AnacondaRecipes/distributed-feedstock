@@ -69,7 +69,7 @@ test:
 #      dask-core --->distributed --->dask
 
 about:
-  home: https://distributed.readthedocs.io/en/latest/
+  home: https://distributed.dask.org/en/latest/
   license: BSD-3-Clause
   license_file: LICENSE.txt
   license_family: BSD
@@ -79,7 +79,6 @@ about:
     It extends both the concurrent.futures and dask APIs to moderate sized
     clusters.
   doc_url: https://distributed.dask.org
-  doc_source_url: https://github.com/dask/distributed/blob/master/docs/source/index.rst
   dev_url: https://github.com/dask/distributed
 
 extra:
