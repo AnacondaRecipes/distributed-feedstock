@@ -17,7 +17,7 @@ build:
     - dask-scheduler=distributed.cli.dask_scheduler:main
     - dask-ssh=distributed.cli.dask_ssh:main
     - dask-worker=distributed.cli.dask_worker:main
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv --no-build-isolation
   skip: true  # [py<38]
 
 requirements:
