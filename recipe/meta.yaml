@@ -1,7 +1,5 @@
 {% set name = "distributed" %}
 {% set version = "2023.4.1" %}
-{% set build_number = "0" %}
-{% set checksum = "0140376338efdcf8db1d03f7c1fdbb5eab2a337b03e955d927c116824ee94ac5" %}
 
 package:
   name: {{ name|lower }}
@@ -9,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ checksum }}
+  sha256: 0140376338efdcf8db1d03f7c1fdbb5eab2a337b03e955d927c116824ee94ac5
 
 build:
-  number: {{ build_number }}
+  number: 0
   entry_points:
     - dask-scheduler=distributed.cli.dask_scheduler:main
     - dask-ssh=distributed.cli.dask_ssh:main
