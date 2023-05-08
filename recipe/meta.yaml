@@ -67,7 +67,7 @@ test:
 #      dask-core --->distributed --->dask
 
 about:
-  home: https://distributed.dask.org/en/latest/
+  home: https://distributed.dask.org/
   license: BSD-3-Clause
   license_file: LICENSE.txt
   license_family: BSD
