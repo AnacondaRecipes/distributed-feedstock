@@ -1,2 +1,6 @@
-#channels: 
-#  avalon-staging: dask_test
+channels:
+  staging_openssl3: openssl3
+build_parameters:
+  - "--suppress-variables"
+  #- "--skip-existing"
+  - "--error-overlinking"
