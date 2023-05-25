@@ -44,7 +44,7 @@ requirements:
     - urllib3 >=1.24.3
     - zict >=2.2.0
   run_constrained:
-    - openssl >3.0.0a, <3.1.0a
+    - openssl >3.0.0a,<3.1.0a
 
 
 test:
