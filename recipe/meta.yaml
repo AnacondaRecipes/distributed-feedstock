@@ -10,7 +10,7 @@ source:
   sha256: a5c4ffcaabfcf8fd32ef79f6ead17108b248baba25c9e6fb305a9904ad6e5229
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - dask-scheduler=distributed.cli.dask_scheduler:main
     - dask-ssh=distributed.cli.dask_ssh:main
@@ -44,7 +44,7 @@ requirements:
     - urllib3 >=1.24.3
     - zict >=2.2.0
   run_constrained:
-    - openssl !=1.1.1e
+    - openssl >3.0.0a,<3.1.0a
 
 test:
   imports:
