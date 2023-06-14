@@ -88,3 +88,5 @@ extra:
     - ogrisel
     - tomaugspurger
     - jrbourbeau
+  skip-lints:
+    - python_build_tool_in_run
