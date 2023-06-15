@@ -1,5 +1,5 @@
 {% set name = "distributed" %}
-{% set version = "2023.5.1" %}
+{% set version = "2023.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a5c4ffcaabfcf8fd32ef79f6ead17108b248baba25c9e6fb305a9904ad6e5229
+  sha256: a5bdd4d15f3e7c8df98513b409753d46a39827a650620cc0c0c5ef2751561280
 
 build:
   number: 0
@@ -43,8 +43,6 @@ requirements:
     - tornado >=6.0.4
     - urllib3 >=1.24.3
     - zict >=2.2.0
-  run_constrained:
-    - openssl !=1.1.1e
 
 test:
   imports:
@@ -88,3 +86,5 @@ extra:
     - ogrisel
     - tomaugspurger
     - jrbourbeau
+  skip-lints:
+    - python_build_tool_in_run
