@@ -1,5 +1,5 @@
 {% set name = "distributed" %}
-{% set version = "2023.6.0" %}
+{% set version = "2023.11.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a5bdd4d15f3e7c8df98513b409753d46a39827a650620cc0c0c5ef2751561280
+  sha256: 6a5ab490bd966d83a04210d560ed72fbb0518e88d63b3a176b6370b296cbd8d5
 
 build:
   number: 0
@@ -15,7 +15,7 @@ build:
     - dask-scheduler=distributed.cli.dask_scheduler:main
     - dask-ssh=distributed.cli.dask_ssh:main
     - dask-worker=distributed.cli.dask_worker:main
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv --no-build-isolation
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vv --no-build-isolation
   skip: true  # [py<39]
 
 requirements:
@@ -24,8 +24,8 @@ requirements:
     - pip
     - wheel
     - setuptools
-    - versioneer 0.28
-    - tomli 2.0.1
+    - versioneer
+    - tomli
   run:
     - python
     - click >=8.0
@@ -42,7 +42,7 @@ requirements:
     - toolz >=0.10.0
     - tornado >=6.0.4
     - urllib3 >=1.24.3
-    - zict >=2.2.0
+    - zict >=3.0.0
 
 test:
   imports:
