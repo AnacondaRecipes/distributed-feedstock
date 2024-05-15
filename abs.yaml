@@ -1,0 +1,2 @@
+channels:
+  - https://staging.continuum.io/prefect/fs/dask-core-feedstock/pr34/176887b
