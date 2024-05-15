@@ -59,10 +59,6 @@ test:
     - dask-scheduler --help
     - dask-ssh --help
     - dask-worker --help
-    - dask scheduler --help
-    - dask ssh --help
-    - dask worker --help
-    - dask spec --help
 
 #Note: The build and dependency order for dask-distributed packages are as follows.
 #      dask-core --->distributed --->dask
