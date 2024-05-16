@@ -1,5 +1,5 @@
 {% set name = "distributed" %}
-{% set version = "2023.11.0" %}
+{% set version = "2024.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,16 +7,16 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 6a5ab490bd966d83a04210d560ed72fbb0518e88d63b3a176b6370b296cbd8d5
+  sha256: 0f83d627551d3748a5478cd03e12e905dbd620a1adcfab0a0d6a488fd6561b48
 
 build:
   number: 0
+  skip: true  # [py<39]
+  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vv --no-build-isolation
   entry_points:
     - dask-scheduler=distributed.cli.dask_scheduler:main
     - dask-ssh=distributed.cli.dask_ssh:main
     - dask-worker=distributed.cli.dask_worker:main
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vv --no-build-isolation
-  skip: true  # [py<39]
 
 requirements:
   host:
@@ -24,13 +24,13 @@ requirements:
     - pip
     - wheel
     - setuptools
-    - versioneer
+    - versioneer 0.29
     - tomli
   run:
     - python
     - click >=8.0
     - cloudpickle >=1.5.0
-    - dask-core {{ version }}
+    - dask-core =={{ version }}
     - jinja2 >=2.10.3
     - locket >=1.0.0
     - msgpack-python >=1.0.0
@@ -68,7 +68,7 @@ about:
   license: BSD-3-Clause
   license_file: LICENSE.txt
   license_family: BSD
-  summary: Distributed computing with Dask
+  summary: A distributed task scheduler for Dask
   description: |
     Distributed is a lightweight library for distributed computing in Python.
     It extends both the concurrent.futures and dask APIs to moderate sized
