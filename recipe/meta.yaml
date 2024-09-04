@@ -17,6 +17,7 @@ build:
     - dask-scheduler=distributed.cli.dask_scheduler:main
     - dask-ssh=distributed.cli.dask_ssh:main
     - dask-worker=distributed.cli.dask_worker:main
+    - dask-spec=distributed.cli.dask_spec:main
 
 requirements:
   host:
@@ -59,6 +60,7 @@ test:
     - dask-scheduler --help
     - dask-ssh --help
     - dask-worker --help
+    - dask-spec --help
 
 #Note: The build and dependency order for dask-distributed packages are as follows.
 #      dask-core ---> dask-expr --->distributed --->dask
