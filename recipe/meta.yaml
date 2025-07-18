@@ -1,5 +1,5 @@
 {% set name = "distributed" %}
-{% set version = "2025.2.0" %}
+{% set version = "2025.5.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 84e8e3a9290db805250cd8f0b46416b8e3e32c8088ffa778d8a21ea1e2c1cac3
+  sha256: cf1d62a2c17a0a9fc1544bd10bb7afd39f22f24aaa9e3df3209c44d2cfb16703
 
 build:
   number: 0
@@ -24,7 +24,7 @@ requirements:
     - python
     - pip
     - wheel
-    - setuptools
+    - setuptools >=62.6
     - versioneer 0.29
     - tomli
   run:
@@ -53,20 +53,20 @@ test:
     - distributed.deploy
     - distributed.diagnostics
     - distributed.protocol
-  requires:
-    - pip
   commands:
     - pip check
     - dask-scheduler --help
     - dask-ssh --help
     - dask-worker --help
     - dask-spec --help
+  requires:
+    - pip
 
 #Note: The build and dependency order for dask-distributed packages are as follows.
 #      dask-core ---> dask-expr --->distributed --->dask
 
 about:
-  home: https://distributed.dask.org/
+  home: https://distributed.dask.org
   license: BSD-3-Clause
   license_file: LICENSE.txt
   license_family: BSD
@@ -88,5 +88,3 @@ extra:
     - ogrisel
     - tomaugspurger
     - jrbourbeau
-  skip-lints:
-    - python_build_tool_in_run
