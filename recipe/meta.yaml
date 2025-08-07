@@ -1,5 +1,5 @@
 {% set name = "distributed" %}
-{% set version = "2025.5.1" %}
+{% set version = "2025.7.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: cf1d62a2c17a0a9fc1544bd10bb7afd39f22f24aaa9e3df3209c44d2cfb16703
+  sha256: 5f8ec20d3cdfb286452831c6f9ebee84527e9323256c20dd2938d9c6e62c5c18
 
 build:
   number: 0
@@ -17,7 +17,6 @@ build:
     - dask-scheduler=distributed.cli.dask_scheduler:main
     - dask-ssh=distributed.cli.dask_ssh:main
     - dask-worker=distributed.cli.dask_worker:main
-    - dask-spec=distributed.cli.dask_spec:main
 
 requirements:
   host:
@@ -48,22 +47,69 @@ requirements:
 test:
   imports:
     - distributed
+    - distributed.active_memory_manager
+    - distributed.actor
+    - distributed.batched
+    - distributed.broker
+    - distributed.cfexecutor
+    - distributed.chaos
     - distributed.cli
+    - distributed.client
+    - distributed.cluster_dump
+    - distributed.collections
     - distributed.comm
+    - distributed.compatibility
+    - distributed.config
+    - distributed.core
+    - distributed.counter
+    - distributed.dashboard
     - distributed.deploy
     - distributed.diagnostics
+    - distributed.diskutils
+    - distributed.event
+    - distributed.exceptions
+    - distributed.gc
+    - distributed.http
+    - distributed.itertools
+    - distributed.lock
+    - distributed.metrics
+    - distributed.multi_lock
+    - distributed.nanny
+    - distributed.node
+    - distributed.objects
+    - distributed.preloading
+    - distributed.process
+    - distributed.profile
     - distributed.protocol
+    - distributed.publish
+    - distributed.queues
+    - distributed.recreate_tasks
+    - distributed.scheduler
+    - distributed.security
+    - distributed.semaphore
+    - distributed.shuffle
+    - distributed.sizeof
+    - distributed.spans
+    - distributed.spill
+    - distributed.stealing
+    - distributed.system
+    - distributed.system_monitor
+    - distributed.threadpoolexecutor
+    - distributed.utils
+    - distributed.utils_comm
+    - distributed.variable
+    - distributed.versions
+    - distributed.worker
   commands:
     - pip check
     - dask-scheduler --help
     - dask-ssh --help
     - dask-worker --help
-    - dask-spec --help
   requires:
     - pip
 
-#Note: The build and dependency order for dask-distributed packages are as follows.
-#      dask-core ---> dask-expr --->distributed --->dask
+# Note: The build and dependency order for dask-distributed packages are as follows.
+# dask-core -> dask-expr -> distributed -> dask
 
 about:
   home: https://distributed.dask.org
