@@ -1,13 +1,13 @@
 {% set name = "distributed" %}
-{% set version = "2025.7.0" %}
+{% set version = "2025.9.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 5f8ec20d3cdfb286452831c6f9ebee84527e9323256c20dd2938d9c6e62c5c18
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: f10e09d6f314e8959b97b633a44ce1807e89197445119fa313333c2df527d25a
 
 build:
   number: 0
@@ -22,15 +22,14 @@ requirements:
   host:
     - python
     - pip
-    - wheel
     - setuptools >=62.6
-    - versioneer 0.29
+    - versioneer ==0.29
     - tomli
   run:
     - python
     - click >=8.0
     - cloudpickle >=3.0.0
-    - dask-core =={{ version }}
+    - dask-core ==2025.9.0
     - jinja2 >=2.10.3
     - locket >=1.0.0
     - msgpack-python >=1.0.2
@@ -110,7 +109,6 @@ test:
 
 # Note: The build and dependency order for dask-distributed packages are as follows.
 # dask-core -> dask-expr -> distributed -> dask
-
 about:
   home: https://distributed.dask.org
   license: BSD-3-Clause
