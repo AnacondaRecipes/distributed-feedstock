@@ -1,13 +1,13 @@
 {% set name = "distributed" %}
-{% set version = "2025.7.0" %}
+{% set version = "2025.9.1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 5f8ec20d3cdfb286452831c6f9ebee84527e9323256c20dd2938d9c6e62c5c18
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 285e0de86fd5e1b941f283f5fd661884645a6a28b06d2a2fdb18079b823aca58
 
 build:
   number: 0
@@ -45,6 +45,9 @@ requirements:
     - zict >=3.0.0
 
 test:
+  # Tests were tried from github sources but take too much time to even run, let alone debug
+  # python(49771) MallocStackLogging: can't turn off malloc stack logging because it was not enabled.
+  # Also tests are getting killed for using up the heap
   imports:
     - distributed
     - distributed.active_memory_manager
@@ -100,13 +103,13 @@ test:
     - distributed.variable
     - distributed.versions
     - distributed.worker
+  requires:
+    - pip
   commands:
     - pip check
     - dask-scheduler --help
     - dask-ssh --help
     - dask-worker --help
-  requires:
-    - pip
 
 # Note: The build and dependency order for dask-distributed packages are as follows.
 # dask-core -> dask-expr -> distributed -> dask
