@@ -12,7 +12,7 @@ source:
 build:
   number: 0
   skip: true  # [py<310]
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vv --no-build-isolation
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
   entry_points:
     - dask-scheduler=distributed.cli.dask_scheduler:main
     - dask-ssh=distributed.cli.dask_ssh:main
