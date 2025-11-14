@@ -1,5 +1,5 @@
 {% set name = "distributed" %}
-{% set version = "2025.10.0" %}
+{% set version = "2025.11.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b6aed021b246fa9e632d87922d6d1ed8d4671a47de2cf671ad9e2932108ace8c
+  sha256: 372c2f0c2faa890fc42188349969ba468161a9b356df49c4ca7d9a8d551a7ace
 
 build:
   number: 0
@@ -22,14 +22,15 @@ requirements:
   host:
     - python
     - pip
-    - setuptools >=62.6
+    - setuptools >=80
     - versioneer ==0.29
     - tomli
+    - setuptools-scm
   run:
     - python
     - click >=8.0
     - cloudpickle >=3.0.0
-    - dask-core =={{ version}}
+    - dask-core =={{ version }}
     - jinja2 >=2.10.3
     - locket >=1.0.0
     - msgpack-python >=1.0.2
