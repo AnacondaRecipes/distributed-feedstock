@@ -10,7 +10,7 @@ source:
   sha256: 372c2f0c2faa890fc42188349969ba468161a9b356df49c4ca7d9a8d551a7ace
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<310]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
   entry_points:
@@ -23,9 +23,9 @@ requirements:
     - python
     - pip
     - setuptools >=80
-    - versioneer ==0.29
     - tomli
-    - setuptools-scm
+    # https://github.com/dask/dask/issues/12182
+    - setuptools-scm >=9
   run:
     - python
     - click >=8.0
@@ -136,3 +136,5 @@ extra:
     - ogrisel
     - tomaugspurger
     - jrbourbeau
+  skip-lints:
+    - host_section_needs_exact_pinnings
