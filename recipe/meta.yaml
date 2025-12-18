@@ -136,3 +136,5 @@ extra:
     - ogrisel
     - tomaugspurger
     - jrbourbeau
+  skip-lints:
+    - host_section_needs_exact_pinnings
