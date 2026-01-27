@@ -1,5 +1,5 @@
 {% set name = "distributed" %}
-{% set version = "2025.12.0" %}
+{% set version = "2026.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b1e58f1b3d733885335817562ee1723379f23733e4ef3546f141080d9cb01a74
+  sha256: 3d2709a43912797df3c345af3bb333bbf1a386ec1e9e6a134e5f050521373dbd
 
 build:
   number: 0
@@ -30,7 +30,7 @@ requirements:
     - python
     - click >=8.0
     - cloudpickle >=3.0.0
-    - dask-core =={{ version }}
+    - dask-core >=2026.1.1,<2026.1.2
     - jinja2 >=2.10.3
     - locket >=1.0.0
     - msgpack-python >=1.0.2
