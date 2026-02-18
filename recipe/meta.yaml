@@ -1,5 +1,5 @@
 {% set name = "distributed" %}
-{% set version = "2025.12.0" %}
+{% set version = "2026.1.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b1e58f1b3d733885335817562ee1723379f23733e4ef3546f141080d9cb01a74
+  sha256: 8333fa7a34151ed3b4cf1a03136fe1f1799eca706a5e47bdb63022c8795d853b
 
 build:
   number: 0
