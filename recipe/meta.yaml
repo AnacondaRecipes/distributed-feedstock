@@ -1,13 +1,15 @@
 {% set name = "distributed" %}
-{% set version = "2026.1.2" %}
+{% set version = "2026.3.0" %}
 
+# Note: The build and dependency order for dask-distributed packages are as follows.
+# dask-core -> dask-expr -> distributed -> dask
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8333fa7a34151ed3b4cf1a03136fe1f1799eca706a5e47bdb63022c8795d853b
+  sha256: 4a8fc6102fededfbaae45288501276da2297a054d74eb6589f01b087c7f95c26
 
 build:
   number: 0
@@ -111,8 +113,6 @@ test:
     - dask-ssh --help
     - dask-worker --help
 
-# Note: The build and dependency order for dask-distributed packages are as follows.
-# dask-core -> dask-expr -> distributed -> dask
 about:
   home: https://distributed.dask.org
   license: BSD-3-Clause
