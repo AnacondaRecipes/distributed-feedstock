@@ -1,5 +1,5 @@
 {% set name = "distributed" %}
-{% set version = "2026.1.2" %}
+{% set version = "2026.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8333fa7a34151ed3b4cf1a03136fe1f1799eca706a5e47bdb63022c8795d853b
+  sha256: 4a8fc6102fededfbaae45288501276da2297a054d74eb6589f01b087c7f95c26
 
 build:
   number: 0
@@ -17,14 +17,13 @@ build:
     - dask-scheduler=distributed.cli.dask_scheduler:main
     - dask-ssh=distributed.cli.dask_ssh:main
     - dask-worker=distributed.cli.dask_worker:main
+    - dask-spec=distributed.cli.dask_spec:main
 
 requirements:
   host:
     - python
     - pip
     - setuptools >=80
-    - tomli
-    # https://github.com/dask/dask/issues/12182
     - setuptools-scm >=9
   run:
     - python
@@ -110,6 +109,7 @@ test:
     - dask-scheduler --help
     - dask-ssh --help
     - dask-worker --help
+    - dask-spec --help
 
 # Note: The build and dependency order for dask-distributed packages are as follows.
 # dask-core -> dask-expr -> distributed -> dask
