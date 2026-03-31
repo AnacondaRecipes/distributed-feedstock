@@ -19,14 +19,13 @@ build:
     - dask-scheduler=distributed.cli.dask_scheduler:main
     - dask-ssh=distributed.cli.dask_ssh:main
     - dask-worker=distributed.cli.dask_worker:main
+    - dask-spec=distributed.cli.dask_spec:main
 
 requirements:
   host:
     - python
     - pip
     - setuptools >=80
-    - tomli
-    # https://github.com/dask/dask/issues/12182
     - setuptools-scm >=9
   run:
     - python
@@ -112,6 +111,7 @@ test:
     - dask-scheduler --help
     - dask-ssh --help
     - dask-worker --help
+    - dask-spec --help
 
 about:
   home: https://distributed.dask.org
