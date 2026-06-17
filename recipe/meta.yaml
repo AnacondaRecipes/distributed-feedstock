@@ -1,23 +1,23 @@
 {% set name = "distributed" %}
-{% set version = "2026.3.0" %}
+{% set version = "2026.6.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 4a8fc6102fededfbaae45288501276da2297a054d74eb6589f01b087c7f95c26
+  sha256: 88b836dc2d85340cad7e08f2611b9336a70ed018d88bc5a70c3721d4a7efcabd
 
 build:
   number: 0
-  skip: true  # [py<310]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
   entry_points:
     - dask-scheduler=distributed.cli.dask_scheduler:main
     - dask-ssh=distributed.cli.dask_ssh:main
     - dask-worker=distributed.cli.dask_worker:main
     - dask-spec=distributed.cli.dask_spec:main
+  skip: true  # [py<310]
 
 requirements:
   host:
