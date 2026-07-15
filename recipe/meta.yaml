@@ -110,6 +110,8 @@ test:
     - dask-worker --help
     - dask-spec --help
 
+# Note: The build and dependency order for dask-distributed packages are as follows.
+# dask-core -> dask-expr -> distributed -> dask
 about:
   home: https://distributed.dask.org
   license: BSD-3-Clause
