@@ -117,7 +117,7 @@ about:
   license: BSD-3-Clause
   license_file: LICENSE.txt
   license_family: BSD
-  summary: A distributed task scheduler for Dask
+  summary: A distributed task scheduler for Dask.
   description: |
     Distributed is a lightweight library for distributed computing in Python.
     It extends both the concurrent.futures and dask APIs to moderate sized
